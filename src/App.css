@@ -1,0 +1,38 @@
+.app-wrapper{
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 3fr 10fr;
+  grid-template-areas: 'header header' 'nav profile';
+  max-width: 1240px;
+}
+.navigation-bar{
+  grid-area: nav;
+  background-color: aqua;
+}
+.header{
+  grid-area: header;
+  background-color: blueviolet;
+}
+.user-profile{
+  grid-area: profile;
+  background-color: burlywood;
+}
+.header img{
+  width: 35px;
+}
+.cover{
+  width: 100%;
+  overflow: hidden;
+}
+.user-info{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+}
+.avatar-wrapper img{
+  margin: 0;
+  width: 100%;
+}
+.avatar-wrapper{
+  padding: 10px;
+  display: inline-block;
+}
