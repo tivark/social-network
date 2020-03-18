@@ -2,9 +2,9 @@ import React from 'react';
 import classes from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 
-const Profile = () => {
+const Profile = (props) => {
     return(
-        <div className={classes.content}>
+        <div>
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Wide_lightning.jpg" className={classes.cover} alt=""/>
             <div className={classes.userInfo}>
                 <div className={classes.avatar}>
