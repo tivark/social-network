@@ -3,19 +3,4 @@
   background-color: burlywood;
 }
 
-.cover {
-  width: 100%;
-  overflow: hidden;
-}
-.userInfo {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-}
-.avatar img {
-  margin: 0;
-  width: 100%;
-}
-.avatar {
-  padding: 10px;
-  display: inline-block;
-}
+
