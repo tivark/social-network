@@ -3,10 +3,10 @@ import classes from "./DialogItem.module.css";
 import {NavLink} from "react-router-dom";
 
 const DialogItem = (props) =>{
-    let path = `/dialogs/${props.id}`;
+    let path = `/dialogs/${props.data.id}`;
     return(
         <div className={classes.dialog}>
-            <NavLink to={path} activeClassName={classes.active}>{props.name}</NavLink>
+            <NavLink to={path} activeClassName={classes.active}>{props.data.name}</NavLink>
         </div>
     )
 }
