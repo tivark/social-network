@@ -1,0 +1,12 @@
+.userInfo {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+}
+.avatar img {
+    margin: 0;
+    width: 100%;
+}
+.avatar {
+    border: solid #ffffff 3px;
+    display: inline-block;
+}
