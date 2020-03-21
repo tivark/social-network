@@ -4,7 +4,7 @@ import classes from './Header.module.css';
 const Header = (props) => {
     return (
         <header className={classes.header}>
-            <img src="https://pngimg.com/uploads/pacman/pacman_PNG79.png" alt=""/>
+            <img src="https://mi.by/local/mi/images/socnet-logo.png" alt=""/>
         </header>
     );
 }
