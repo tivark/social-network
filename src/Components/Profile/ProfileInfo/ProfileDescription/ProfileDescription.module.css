@@ -1,6 +1,12 @@
 .userInfo {
     display: grid;
     grid-template-columns: 60px 1fr;
+    width: 95%;
+    padding: 10px;
+    position: absolute;
+    bottom: 5%;
+    left: 1.4%;
+    background-color: #aaa;
 }
 .avatar img {
     margin: 0;
