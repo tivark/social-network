@@ -1,8 +1,35 @@
+.box {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas: "up pt" "lc lc";
+    margin-bottom: 20px;
+    border: solid rgba(0,0,0,.5) 1px;
+    border-radius: 5px;
+    padding: 10px;
+    grid-gap: 10px;
+}
 
-.item{
+.item {
     color: green;
 }
-.image{
+
+.image {
     width: 60px;
     height: 60px;
+    border-radius: 50%;
+}
+
+.userPhoto {
+    grid-area: up;
+}
+
+.postText {
+    grid-area: pt;
+}
+
+.likeCounter {
+    grid-area: lc;
+    text-align: right;
+    padding-right: 20px;
 }

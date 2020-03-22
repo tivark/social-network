@@ -5,7 +5,7 @@ import MessageSender from "./MessageSender/MessageSender";
 
 const Messages = (props) => {
 
-    let messagesElements = props.messages.map(m => (<MessageItem message={m.message}/>));
+    let messagesElements = props.messages.map(el => (<MessageItem state={el}/>));
     return (
         <div className={classes.box}>
             <div className={classes.messagesItems}>

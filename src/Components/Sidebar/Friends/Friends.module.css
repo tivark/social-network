@@ -1,0 +1,12 @@
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.title{
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+}

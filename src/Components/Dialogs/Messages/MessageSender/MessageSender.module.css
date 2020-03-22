@@ -1,5 +1,6 @@
 .box{
     width: 100%;
+    text-align: right;
 }
 .messageInput{
     width: 100%;
