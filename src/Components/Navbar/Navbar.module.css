@@ -1,10 +1,9 @@
 .nav {
     grid-area: nav;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 10px;
     border: solid rgba(0, 0, 0, .5) 1px;
     border-radius: 5px;
-    margin-right: 5px;
 }
 
 .item a {

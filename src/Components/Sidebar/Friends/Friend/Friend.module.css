@@ -9,7 +9,7 @@
 }
 
 .userPhotoWrapper {
-    width: 32px;
+    width: 100%;
     height: 32px;
     overflow: hidden;
     border-radius: 50%;

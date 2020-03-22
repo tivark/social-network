@@ -1,7 +1,15 @@
-.box{
+.box {
     width: 100%;
     text-align: right;
 }
-.messageInput{
+
+.messageInput {
+    box-sizing: border-box;
     width: 100%;
+    resize: none;
+    border-radius: 5px;
+}
+.messageSendButton{
+    border-radius: 5px;
+    padding: 5px 30px;
 }

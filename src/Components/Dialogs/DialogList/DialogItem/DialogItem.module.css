@@ -1,10 +1,20 @@
-.dialog a {
+.box {
+    border-radius: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.box:hover .userPreviewWrapper {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+}
+
+.box a {
     text-decoration: none;
     color: rgba(0, 0, 0, .5);
 }
 
-.dialog a.active {
-    color: gold;
+.box a.active .userPreviewWrapper {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .3);
 }
 
 .userPhotoWrapper {
@@ -18,7 +28,8 @@
     display: grid;
     grid-template-columns: 3fr 10fr;
     height: 32px;
-    margin-bottom: 10px;
+    padding: 5px;
+    transition: all .2s linear;
 }
 
 .userPhoto {
