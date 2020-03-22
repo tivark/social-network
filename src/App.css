@@ -9,6 +9,8 @@
 }
 .app-wrapper-content {
   grid-area: profile;
-  background-color: burlywood;
+  border-radius: 5px;
+  border: solid #aaaaaa 1px;
+  overflow: hidden;
 }
 

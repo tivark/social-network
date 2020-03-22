@@ -1,7 +1,33 @@
-.dialog a{
+.dialog a {
     text-decoration: none;
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
 }
-.dialog a.active{
+
+.dialog a.active {
     color: gold;
+}
+
+.userPhotoWrapper {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.userPreviewWrapper {
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+    height: 32px;
+    margin-bottom: 10px;
+}
+
+.userPhoto {
+    height: 100%;
+    margin: 0;
+}
+
+.userName {
+    display: flex;
+    align-items: center;
+    padding-left: 7px;
 }

@@ -1,18 +1,47 @@
 .userInfo {
-    display: grid;
-    grid-template-columns: 60px 1fr;
     width: 95%;
     padding: 10px;
     position: absolute;
     bottom: 5%;
     left: 1.4%;
-    background-color: #aaa;
+    background-color: #ffffff;
+    border-radius: 5px;
 }
+
 .avatar img {
     margin: 0;
     width: 100%;
 }
+
 .avatar {
     border: solid #ffffff 3px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    left: 40px;
+    top: -100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.details {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.name {
+    display: flex;
+    align-items: flex-end;
+    padding-left: 40px;
+    font-size: 25px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

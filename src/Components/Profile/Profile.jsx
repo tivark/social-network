@@ -7,9 +7,9 @@ const Profile = (props) => {
     return(
         <div>
             <ProfileInfo />
-            <MyPosts allPosts={props.state.posts}/>
+            <MyPosts posts={props.state.posts}/>
         </div>
     );
-}
+};
 
 export default Profile;

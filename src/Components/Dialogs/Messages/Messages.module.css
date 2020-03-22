@@ -1,4 +1,8 @@
-
-.messages{
-
+.box {
+    padding: 10px;
+}
+.messagesItems{
+    border: solid #aaaaaa 1px;
+    width:100%;
+    height: 90%;
 }
