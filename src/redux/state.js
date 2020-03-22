@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "./../render";
+
 let state = {
     profilePage: {
         posts: [
@@ -28,6 +30,14 @@ let state = {
             {id: 6, name: 'Denis', photo:'https://i.ya-webdesign.com/images/profile-image-png-14.png'},
         ]
     }
+}
+
+export let addPost = (postText) => {
+    let newPost = {
+        id: 4, post: postText, likes: 0
+    };
+    state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state, addPost);
 }
 
 export default state;

@@ -8,7 +8,7 @@ const MyPosts = (props) => {
     return (
         <div className={classes.box}>
             <span className={classes.title}>My posts</span>
-            <NewPost/>
+            <NewPost addPost={props.addPost}/>
             <div className={classes.posts}>
                 {postList}
             </div>
