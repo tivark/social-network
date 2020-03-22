@@ -1,6 +1,7 @@
 *{
   box-sizing: border-box;
 }
+
 .app-wrapper{
   display: grid;
   grid-template-rows: 60px 1fr;
@@ -8,7 +9,7 @@
   grid-template-areas: 'header header' 'nav profile';
   max-width: 1240px;
   margin: 0 auto;
-  min-height: 600px;
+  min-height: 760px;
   grid-gap: 10px ;
 }
 .app-wrapper-content {
