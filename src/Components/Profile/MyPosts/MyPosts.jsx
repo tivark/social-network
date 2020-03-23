@@ -8,7 +8,9 @@ const  MyPosts = (props) => {
     return (
         <div className={classes.box}>
             <span className={classes.title}>My posts</span>
-            <NewPost addPost={props.addPost} newPostText={props.newPostText}/>
+            <NewPost addPost={props.addPost}
+                     newPostText={props.newPostText}
+                     setNewPostText={props.setNewPostText}/>
             <div className={classes.posts}>
                 {postList}
             </div>

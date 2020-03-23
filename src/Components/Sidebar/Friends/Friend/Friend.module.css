@@ -21,6 +21,7 @@
 .userPhoto {
     height: 100%;
     margin: 0;
+    border-radius: 50%;
 }
 
 .userName {
@@ -28,6 +29,7 @@
     text-align: center;
     color: rgba(0, 0, 0, .5);
 }
-.box a{
+
+.box a {
     text-decoration: none;
 }

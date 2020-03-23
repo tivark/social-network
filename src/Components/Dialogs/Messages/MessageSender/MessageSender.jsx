@@ -1,19 +1,19 @@
 import React from "react";
 import classes from "./MessageSender.module.css";
 
-const MessageSender = (props) =>{
+const MessageSender = (props) => {
 
     let newMessageArea = React.createRef();
 
-    function sendMessage() {
-        let text = newMessageArea.current.value;
-        console.log(text);
+    const changeInputText = () => {
+        let newText = newMessageArea.current.value;
+        props.setNewMessageText(newText);
     }
-
-    return(
+    return (
         <div className={classes.box}>
-            <textarea ref={newMessageArea} rows="5" className={classes.messageInput}></textarea>
-            <button className={classes.messageSendButton} onClick={sendMessage}>Send</button>
+            <textarea ref={newMessageArea} rows="5" className={classes.messageInput} value={props.currentMessage}
+                      onChange={changeInputText}/>
+            <button className={classes.messageSendButton} onClick={props.addNewMessage}>Send</button>
         </div>
     )
 };

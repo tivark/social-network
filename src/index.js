@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state from './redux/state';
+import state, {addNewMessage, setNewMessageText, setNewPostText, subscribe} from './redux/state';
 import {addPost} from "./redux/state";
-import {rerenderEntireTree} from "./render";
 
-rerenderEntireTree(state, addPost);
+let rerenderEntireTree = (state) => {
+    ReactDOM.render(<App state={state}
+                         addPost={addPost}
+                         setNewPostText={setNewPostText}
+                         addNewMessage={addNewMessage}
+                         setNewMessageText={setNewMessageText}/>, document.getElementById('root'));
+};
+
+rerenderEntireTree(state);
+
+subscribe(rerenderEntireTree);
 
 serviceWorker.unregister();

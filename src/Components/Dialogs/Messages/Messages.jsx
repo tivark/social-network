@@ -11,7 +11,9 @@ const Messages = (props) => {
             <div className={classes.messagesItems}>
                 {messagesElements}
             </div>
-            <MessageSender/>
+            <MessageSender addNewMessage={props.addNewMessage}
+                           setNewMessageText={props.setNewMessageText}
+                           currentMessage={props.currentMessage}/>
         </div>
     )
 }

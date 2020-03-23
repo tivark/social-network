@@ -5,16 +5,9 @@ const NewPost = (props) => {
 
     let newPostContent = React.createRef();
 
-    let addNewPost = () => {
-        if (newPostContent.current.value.length > 3) {
-            let newText = newPostContent.current.value;
-            newPostContent.current.value = '';
-            props.addPost(newText);
-        }
-    }
-
     let onInputChange = () =>{
-        console.log(newPostContent.current.value);
+        let inputText = newPostContent.current.value;
+        props.setNewPostText(inputText);
     }
 
     return (
@@ -24,7 +17,7 @@ const NewPost = (props) => {
                       rows="4"
                       value={props.newPostText}
                       onChange={onInputChange}/>
-            <button value="Add post" className={classes.addPostButton} onClick={addNewPost}>Add post</button>
+            <button value="Add post" className={classes.addPostButton} onClick={props.addPost}>Add post</button>
         </div>
     )
 };
