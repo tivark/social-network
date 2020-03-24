@@ -5,10 +5,19 @@ const NewPost = (props) => {
 
     let newPostContent = React.createRef();
 
-    let onInputChange = () =>{
+    const onInputChange = () => {
         let inputText = newPostContent.current.value;
-        props.setNewPostText(inputText);
-    }
+        let action = {
+            type: 'SET-POST-TEXT',
+            newText: inputText
+        };
+        props.dispatch(action);
+    };
+
+    const addPost = () => {
+        let action = {type: 'ADD-POST'};
+        props.dispatch(action);
+    };
 
     return (
         <div className={classes.box}>
@@ -17,7 +26,7 @@ const NewPost = (props) => {
                       rows="4"
                       value={props.newPostText}
                       onChange={onInputChange}/>
-            <button value="Add post" className={classes.addPostButton} onClick={props.addPost}>Add post</button>
+            <button value="Add post" className={classes.addPostButton} onClick={addPost}>Add post</button>
         </div>
     )
 };

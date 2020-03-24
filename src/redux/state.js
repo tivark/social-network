@@ -48,40 +48,45 @@ let store = {
             ]
         }
     },
-    _rerenderEntireTree() {
+    _callSubscriber() {
         console.log('state was changed');
     },
-    addPost() {
-        let newPost = {
-            id: 4, post: this._state.profilePage.newPostText, likes: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._rerenderEntireTree(this._state);
-    },
-    setNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._rerenderEntireTree(this._state);
-    },
-    addNewMessage() {
-        let messageItem = {
-            id: 4, message: this._state.messagesPage.currentMessage, senderId: 1
-        };
-        this._state.messagesPage.messages.push(messageItem);
-        this._state.messagesPage.currentMessage = '';
-        this._rerenderEntireTree(this._state);
-    },
-    setNewMessageText(newText) {
-        this._state.messagesPage.currentMessage = newText;
-        this._rerenderEntireTree(this._state);
-    },
-    subscribe(observer) {
-        this._rerenderEntireTree = observer;
-    },
-    getState() {
+    getState(){
         return this._state;
+    },
+    subscribe(observer){
+        this._callSubscriber = observer;
+    },
+    dispatch(action){
+        switch (action.type) {
+            case 'ADD-POST':
+                let newPost = {
+                    id: 4, post: this._state.profilePage.newPostText, likes: 0
+                };
+                this._state.profilePage.posts.push(newPost);
+                this._state.profilePage.newPostText = '';
+                this._callSubscriber(this._state);
+                break;
+            case 'SET-POST-TEXT':
+                this._state.profilePage.newPostText = action.newText;
+                this._callSubscriber(this._state);
+                break;
+            case 'SET-MESSAGE-TEXT':
+                this._state.messagesPage.currentMessage = action.newText;
+                this._callSubscriber(this._state);
+                break;
+            case 'ADD-MESSAGE':
+                let messageItem = {
+                    id: 4, message: this._state.messagesPage.currentMessage, senderId: 1
+                };
+                this._state.messagesPage.messages.push(messageItem);
+                this._state.messagesPage.currentMessage = '';
+                this._callSubscriber(this._state);
+                break;
+            default:
+                console.log(`incorrect action type: ${action.type}`);
+        }
     }
-
 };
 
 
