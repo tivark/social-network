@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./NewPost.module.css";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/store";
 
 const NewPost = (props) => {
 
@@ -7,16 +8,11 @@ const NewPost = (props) => {
 
     const onInputChange = () => {
         let inputText = newPostContent.current.value;
-        let action = {
-            type: 'SET-POST-TEXT',
-            newText: inputText
-        };
-        props.dispatch(action);
+        props.dispatch(updateNewPostTextActionCreator(inputText));
     };
 
     const addPost = () => {
-        let action = {type: 'ADD-POST'};
-        props.dispatch(action);
+        props.dispatch(addPostActionCreator());
     };
 
     return (

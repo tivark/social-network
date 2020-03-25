@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./MessageSender.module.css";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../../redux/store";
 
 const MessageSender = (props) => {
 
@@ -7,18 +8,11 @@ const MessageSender = (props) => {
 
     const changeInputText = () => {
         let inputText = newMessageArea.current.value;
-        let action = {
-            type: 'SET-MESSAGE-TEXT',
-            newText: inputText
-        }
-        props.dispatch(action);
+        props.dispatch(updateNewMessageTextActionCreator(inputText));
     };
 
     const addNewMessage = () => {
-        let action = {
-            type: 'ADD-MESSAGE'
-        }
-        props.dispatch(action);
+        props.dispatch(addMessageActionCreator());
     };
 
     return (

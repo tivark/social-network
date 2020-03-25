@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const SET_POST_TEXT = 'SET-POST-TEXT';
+const SET_MESSAGE_TEXT = 'SET-MESSAGE-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+
 let store = {
     _state: {
         profilePage: {
@@ -59,7 +64,7 @@ let store = {
     },
     dispatch(action){
         switch (action.type) {
-            case 'ADD-POST':
+            case ADD_POST:
                 let newPost = {
                     id: 4, post: this._state.profilePage.newPostText, likes: 0
                 };
@@ -67,15 +72,15 @@ let store = {
                 this._state.profilePage.newPostText = '';
                 this._callSubscriber(this._state);
                 break;
-            case 'SET-POST-TEXT':
+            case SET_POST_TEXT:
                 this._state.profilePage.newPostText = action.newText;
                 this._callSubscriber(this._state);
                 break;
-            case 'SET-MESSAGE-TEXT':
+            case SET_MESSAGE_TEXT:
                 this._state.messagesPage.currentMessage = action.newText;
                 this._callSubscriber(this._state);
                 break;
-            case 'ADD-MESSAGE':
+            case ADD_MESSAGE:
                 let messageItem = {
                     id: 4, message: this._state.messagesPage.currentMessage, senderId: 1
                 };
@@ -89,5 +94,15 @@ let store = {
     }
 };
 
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const updateNewPostTextActionCreator = (inputText) => ({
+    type: SET_POST_TEXT,
+    newText: inputText
+});
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
+export const updateNewMessageTextActionCreator = (inputText) => ({
+    type: SET_MESSAGE_TEXT,
+    newText: inputText
+});
 
 export default store;
