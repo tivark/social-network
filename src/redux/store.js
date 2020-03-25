@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const SET_POST_TEXT = 'SET-POST-TEXT';
-const SET_MESSAGE_TEXT = 'SET-MESSAGE-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
+import profileReducer from './profileReducer';
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
 
 let store = {
     _state: {
@@ -63,46 +62,14 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action){
-        switch (action.type) {
-            case ADD_POST:
-                let newPost = {
-                    id: 4, post: this._state.profilePage.newPostText, likes: 0
-                };
-                this._state.profilePage.posts.push(newPost);
-                this._state.profilePage.newPostText = '';
-                this._callSubscriber(this._state);
-                break;
-            case SET_POST_TEXT:
-                this._state.profilePage.newPostText = action.newText;
-                this._callSubscriber(this._state);
-                break;
-            case SET_MESSAGE_TEXT:
-                this._state.messagesPage.currentMessage = action.newText;
-                this._callSubscriber(this._state);
-                break;
-            case ADD_MESSAGE:
-                let messageItem = {
-                    id: 4, message: this._state.messagesPage.currentMessage, senderId: 1
-                };
-                this._state.messagesPage.messages.push(messageItem);
-                this._state.messagesPage.currentMessage = '';
-                this._callSubscriber(this._state);
-                break;
-            default:
-                console.log(`incorrect action type: ${action.type}`);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._callSubscriber(this._state);
     }
 };
 
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewPostTextActionCreator = (inputText) => ({
-    type: SET_POST_TEXT,
-    newText: inputText
-});
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
-export const updateNewMessageTextActionCreator = (inputText) => ({
-    type: SET_MESSAGE_TEXT,
-    newText: inputText
-});
+
+
 
 export default store;
