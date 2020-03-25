@@ -6,8 +6,8 @@ const NewPost = (props) => {
 
     let newPostContent = React.createRef();
 
-    const onInputChange = () => {
-        let inputText = newPostContent.current.value;
+    const onInputChange = (e) => {
+        let inputText = e.target.value;
         props.dispatch(updateNewPostTextActionCreator(inputText));
     };
 

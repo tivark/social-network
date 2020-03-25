@@ -6,8 +6,8 @@ const MessageSender = (props) => {
 
     let newMessageArea = React.createRef();
 
-    const changeInputText = () => {
-        let inputText = newMessageArea.current.value;
+    const changeInputText = (e) => {
+        let inputText = e.target.value;
         props.dispatch(updateNewMessageTextActionCreator(inputText));
     };
 
