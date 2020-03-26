@@ -10,6 +10,7 @@ import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 
 const App = (props) => {
+    debugger;
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -27,6 +28,6 @@ const App = (props) => {
             </div>
         </BrowserRouter>
     );
-}
+};
 
 export default App;

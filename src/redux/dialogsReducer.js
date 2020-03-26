@@ -13,22 +13,23 @@ let initialState = {
         {id: 3, message: 'Yo Yo Yo', senderId: '2'},
     ],
     currentMessage: ''
-}
+};
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_MESSAGE_TEXT:
             state.currentMessage = action.newText;
-            break;
+            return state;
         case ADD_MESSAGE:
             let messageItem = {
                 id: 4, message: state.currentMessage, senderId: 1
             };
             state.messages.push(messageItem);
             state.currentMessage = '';
-            break;
+            return state;
+        default:
+            return state;
     }
-    return state;
 };
 export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
 export const updateNewMessageTextActionCreator = (inputText) => ({
