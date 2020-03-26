@@ -5,15 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from './redux/redux-store';
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
     ReactDOM.render(<App store={store}/>, document.getElementById('root'));
 };
 
 rerenderEntireTree(store.getState());
 
 store.subscribe(() => {
-    let state = store.getState();
-    rerenderEntireTree(state)
+    rerenderEntireTree();
 });
 
 serviceWorker.unregister();
