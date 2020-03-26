@@ -4,25 +4,22 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../
 
 const NewPost = (props) => {
 
-    let newPostContent = React.createRef();
-
     const onInputChange = (e) => {
         let inputText = e.target.value;
-        props.dispatch(updateNewPostTextActionCreator(inputText));
+        props.updateInputText(inputText);
     };
 
-    const addPost = () => {
-        props.dispatch(addPostActionCreator());
+    const onAddPost = () => {
+        props.addPost();
     };
 
     return (
         <div className={classes.box}>
-            <textarea ref={newPostContent}
-                      className={classes.inputTextPost}
+            <textarea className={classes.inputTextPost}
                       rows="4"
                       value={props.newPostText}
                       onChange={onInputChange}/>
-            <button value="Add post" className={classes.addPostButton} onClick={addPost}>Add post</button>
+            <button value="Add post" className={classes.addPostButton} onClick={onAddPost}>Add post</button>
         </div>
     )
 };
