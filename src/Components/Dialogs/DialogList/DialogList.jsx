@@ -3,8 +3,7 @@ import classes from "./DialogsList.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 
 const DialogsList = (props) =>{
-    let state = props.store.getState();
-    let dialogsElements = state.dialogsPage.dialogs.map( item => (<DialogItem data={item} key={item.id}/>) );
+    let dialogsElements = props.dialogsList.map( item => (<DialogItem data={item} key={item.id}/>) );
     return (
         <div className={classes.dialogsItems}>
             {dialogsElements}

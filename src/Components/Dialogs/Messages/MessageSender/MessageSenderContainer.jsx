@@ -2,8 +2,9 @@ import React from "react";
 import classes from "./MessageSender.module.css";
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../../redux/dialogsReducer";
 import MessageSender from "./MessageSender";
+import {connect} from "react-redux";
 
-const MessageSenderContainer = (props) => {
+/*const MessageSenderContainer = (props) => {
 
     let state = props.store.getState();
     let newMessageText = state.dialogsPage.currentMessage;
@@ -21,6 +22,21 @@ const MessageSenderContainer = (props) => {
     return (
         <MessageSender updateInputText={updateInputText} addMessage={addMessage} currentMessage={newMessageText}/>
     )
+};*/
+
+let mapStateToProps = (state) => {
+    return{
+        currentMessage: state.dialogsPage.currentMessage
+    }
 };
+
+let mapDispatchToProps = (dispatch) => {
+    return{
+        addMessage: () => {dispatch(addMessageActionCreator())},
+        updateInputText: (inputText) => {dispatch(updateNewMessageTextActionCreator(inputText))}
+    }
+};
+
+const MessageSenderContainer = connect(mapStateToProps, mapDispatchToProps)(MessageSender);
 
 export default MessageSenderContainer;
