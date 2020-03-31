@@ -1,13 +1,13 @@
 import React from "react";
 import classes from "./Sidebar.module.css";
-import Friends from "./Friends/Friends";
+import FriendsContainer from "./Friends/FriendsContainer";
 
 const Sidebar = (props) => {
     return(
         <div className={classes.box}>
-            <Friends/>
+            <FriendsContainer/>
         </div>
     );
-}
+};
 
 export default Sidebar;

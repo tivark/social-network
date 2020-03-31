@@ -9,6 +9,6 @@ const DialogsList = (props) =>{
             {dialogsElements}
         </div>
     )
-}
+};
 
 export default DialogsList;
