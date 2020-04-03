@@ -1,35 +1,13 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const FOLLOW_SWITCH = 'FOLLOW_SWITCH';
 
 const initialState = {
-    users: [
-        {
-            id: 1,
-            followed: false,
-            fullName: 'Vitali',
-            status: 'i\'m a boss',
-            location: {city: 'Minsk', country: 'Belarus'}
-        },
-        {
-            id: 2,
-            followed: true,
-            fullName: 'Sergei',
-            status: 'i\'m a boss too',
-            location: {city: 'Moscow', country: 'Russia'}
-        },
-        {
-            id: 3,
-            followed: false,
-            fullName: 'Victor',
-            status: 'i\'m a boss',
-            location: {city: 'Kiev', country: 'Ukraine'}
-        }
-    ]
+    users: []
 };
 
 const usersReducer = (state = initialState, action) => {
-    let stateCopy;
     switch (action.type) {
         case FOLLOW:
             return {
@@ -60,15 +38,29 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: [...state.users, action.users]
-            }
+                users: [...state.users, ...action.users]
+            };
+        case FOLLOW_SWITCH:
+            return {
+                ...state,
+                users: state.users.map(user => {
+                    if (user.id === action.userId) {
+                        return {
+                            ...user,
+                            followed: !user.followed
+                        }
+                    }
+                    return user
+                })
+            };
         default:
             return state;
     }
 };
 
-export const followAC = (userId) => ({ type: FOLLOW, userId: userId });
-export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId: userId});
+export const followAC = (userId) => ({type: FOLLOW, userId: userId});
+export const unfollowAC = (userId) => ({type: UNFOLLOW, userId: userId});
 export const setUsersAC = (users) => ({type: SET_USERS, users: users});
+export const followSwitcherAC = (userId) => ({type: FOLLOW_SWITCH, userId: userId});
 
 export default usersReducer;
