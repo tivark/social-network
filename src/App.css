@@ -6,7 +6,7 @@
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 13fr;
-  grid-template-areas: 'header header' 'nav profile';
+  grid-template-areas: 'header header' 'nav profile' 'footer footer';
   max-width: 1240px;
   margin: 0 auto;
   min-height: 760px;

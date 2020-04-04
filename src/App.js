@@ -9,6 +9,7 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import UsersContainer from "./Components/Users/UsersContainer";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
                 </div>
+                <Footer/>
             </div>
     );
 };
