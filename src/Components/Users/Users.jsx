@@ -1,9 +1,17 @@
 import React from "react";
 import classes from "./Users.module.css";
+import * as axios from "axios";
 
 const Users = (props) => {
+    let noPhotoImageUrl = "https://www.centralchristian.edu/wp-content/uploads/2019/07/person-placeholder.png"
     if (props.users.length === 0) {
-        props.setUsers([
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                props.setUsers(response.data.items)
+            })
+
+/*        props.setUsers([
             {
                 id: 1,
                 followed: false,
@@ -28,16 +36,16 @@ const Users = (props) => {
                 location: {city: 'Kiev', country: 'Ukraine'},
                 photoUrl: 'https://cdn0.iconfinder.com/data/icons/avatar-78/128/12-512.png'
             }
-        ]);
+        ]);*/
     }
     return (
         <div className={classes.box}>
             {
                 props.users.map(el => <div className={classes.userWrapper} key={el.id}>
-                    <div className={classes.avatarWrapper}><img src={el.photoUrl} alt={el.name}
+                    <div className={classes.avatarWrapper}><img src={el.photos.small ? el.photos.small : noPhotoImageUrl} alt={el.name}
                                                                 className={classes.avatarImage}/></div>
                     <div className={classes.userDetails}>
-                        <div>{el.fullName}</div>
+                        <div>{el.name}</div>
                         <div>{el.status}</div>
                         <div className={classes.followButtonWrapper}>
                             <button className={classes.followButton} onClick={() => {
