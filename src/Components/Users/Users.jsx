@@ -8,12 +8,19 @@ class Users extends React.Component {
         axios.get("https://social-network.samuraijs.com/api/1.0/users")
             .then(response => {
                 this.props.setUsers(response.data.items)
+
             })
     }
 
     render() {
+        let pagesCount = this.props.totalUsersCount / this.props.pageSize;
         return (
             <div className={classes.box}>
+                <div>
+                    <span className={classes.selectedPage}>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
                 {
                     this.props.users.map(el => <div className={classes.userWrapper} key={el.id}>
                         <div className={classes.avatarWrapper}><img

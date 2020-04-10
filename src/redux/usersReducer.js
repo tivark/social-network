@@ -2,7 +2,9 @@ const SET_USERS = 'SET_USERS';
 const FOLLOW_SWITCH = 'FOLLOW_SWITCH';
 
 const initialState = {
-    users: []
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0
 };
 
 const usersReducer = (state = initialState, action) => {

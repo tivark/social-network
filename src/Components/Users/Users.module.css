@@ -33,3 +33,8 @@
 .followButtonWrapper {
     align-self: end;
 }
+.selectedPage{
+    font-weight: 600;
+    color: #1ab394;
+    font-size: 1.2em;
+}
